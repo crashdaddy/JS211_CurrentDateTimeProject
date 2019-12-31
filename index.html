@@ -1,15 +1,140 @@
 <!DOCTYPE html>
 <html>
+ 
   <head>
     <meta charset="utf-8">
     <title></title>
+    <!--  Include the files we're going to need
+          jquery provides the functionality while
+          jqueryui provides the controls
+    -->
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="jquery-ui.css" />
+    <script type = "text/javascript" src="jquery-ui.js"></script>
+    <!--  main is the file where our assignment functions reside -->
     <script src="main.js"></script>
+    <style>
+       /* hide the .assignment divs until ready to see */
+      .assignment {
+      display: none;
+      }
+
+      /* The slider handles */
+      #custom-handle #custom-handle2 {
+        width: 3em;
+        height: 1.6em;
+        top: 50%;
+        margin-top: -.8em;
+        text-align: center;
+        line-height: 1.6em;
+      }
+
+      /* puts some space between the addition sliders */
+      #slider{
+              margin-top: 20px;
+              margin-bottom: 20px;
+      }
+      
+      /* output of the addition sliders */
+      #additionTotal {
+        width:100%;
+        text-align: center;
+      } 
+
+      .maidenDiv {
+        width:30%;
+        border:1px solid black;
+        float:left;
+        font-size:14;
+      }     
+      </style>
   </head>
   <body>
+
     <h1>Hello World!</h1>
+    Click the links below to view the assignment requirements:
     <hr/>
-    <div id="display-element"></div>
+    <a href="#" data-toggle="#div1"> Sample problem </a>:
+    <a href="#" data-toggle="#div2"> Assignment 1 </a>:
+    <a href="#" data-toggle="#div3"> Assignment 2 </a>:
+    <a href="#" data-toggle="#div4"> Assignment 3 </a>:
+    <a href="#" data-toggle="#div5"> Assignment 4 </a>:
+    <a href="#" data-toggle="#div6"> Assignment 5,6,7 (together!) </a>
+    <hr/>
+    <br/>
+    <div id = "div1" class="assignment">
+    <div id="display-element">
     <button onclick="displayDate()">Click Me</button>
+    </div>
     <hr/>
+    </div>
+    
+    
+    <div  id = "div2" class="assignment">
+      
+    Convert a number to a string!<br/>
+    <input type = "number" placeholder="Enter a number" id="numberText">
+    <div id = "stringDiv"></div>
+    <hr/>
+    </div>
+
+    <div  id = "div3" class="assignment">
+    Magically convert a string to a number!<br/>
+    <button onclick = "stringNum()">Convert a string to a number!</button>
+    <div id = "stringNumber"></div>
+    <hr/>
+    </div>
+    
+    
+    <div id = "div4" class="assignment">
+    Here's an example of different data types:<br/>
+    <button onclick="showDataType()" >Show DataTypes</button>
+    <div id="dataTypeDiv"></div>
+    <hr/>
+    </div>
+      
+    
+    <div id = "div5" class="assignment">
+    <div id="slidersDiv">
+    <!-- I did it with jquery sliders as kind of a treat for you
+    in reality, this method is limited, because the sliders top
+    values are limited
+    -->
+    Use these two sliders to add their values together!<br>
+    <div id="slider">
+    <div id="custom-handle" class="ui-slider-handle"></div>
+    </div> <!-- slider -->
+    <br/>
+    <div id="slider2">
+    <div id="custom-handle2" class="ui-slider-handle"></div>
+    </div> <!-- slider2 -->
+    </div>   
+    <br/>
+    <div id="additionTotal"></div>
+    <hr/>
+    </div>
+    
+    
+    <div id = "div6" class="assignment">
+    <br/>
+    <div style="margin-bottom:20px;">
+    You're walking through the woods and come upon three maidens. If you give them an offering they
+    accept, you will be blessed with magical protection. Otherwise they'll just ignore you!<br/>
+    Choose a combination of sticks, leaves and gold that might appease the maidens!<br/>
+    <em>(hint: ((a+b)>100 && c<20))</em><br/>
+    <input type = "number" placeholder="Leaves" id="numberText1" onchange="checkTrues()">
+    <input type = "number" placeholder="Gold" id="numberText2" onchange="checkTrues()">
+    <input type = "number" placeholder="Sticks" id="numberText3" onchange="checkTrues()">
+    </div>
+    <div id ="trueOutputDiv" style="display:inline;padding-top:20px;">
+      <div id="broomhildaDiv" class="maidenDiv"></div>
+      <div id = "gretaDiv" class="maidenDiv"></div>
+      <div id= "schotziDiv" class="maidenDiv"></div>
+    </div>
+    <br/>
+    <hr/>
+    </div>
+    
+
   </body>
 </html>
